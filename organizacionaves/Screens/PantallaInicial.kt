@@ -1,6 +1,7 @@
 package com.example.organizacionaves.Screens
 
 import androidx.compose.foundation.layout.Arrangement
+import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
@@ -16,41 +17,43 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.alpha
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
-import androidx.navigation.NavController
-
 
 @Composable
-fun CuerpoPantalla(navController: NavController) {
+fun CuerpoPantalla(permisosViewModel: PermisosViewModel, navegarCrearPDF: () -> Unit, navegarVerPDF: () -> Unit) {
+
     Column(
         verticalArrangement = Arrangement.Center,
         horizontalAlignment = Alignment.CenterHorizontally,
         modifier = Modifier.fillMaxSize()
-
     ) {
-        Text(
-            text = "Manejo de \nHistorias Clínicas ",
-            fontSize = 30.sp,
-            modifier = Modifier
-                .alpha(0.60f)
-                .padding(bottom = 100.dp)
-
-        )
+        Box(
+            //modifier = Modifier.border(color = Color.Magenta, width = 2.dp),
+            contentAlignment = Alignment.Center
+        ) {
+            Text(
+                text = "Manejo de Historias Clínicas ",
+                fontSize = 30.sp,
+                modifier = Modifier
+                    .alpha(0.60f)
+                    .padding(bottom = 100.dp)
+            )
+        }
         Row(
             horizontalArrangement = Arrangement.Center,
             modifier = Modifier.fillMaxWidth()
 
         ) {
 
-            //Spacer(modifier = Modifier.width(2.dp))
-            Button(onClick = { navController.navigate(route = AppScreens.CrearPDFs.route) }) {
+            Button(onClick = { navegarCrearPDF() }) {
                 Text("LLenar Historia Clínica")
 
             }
             Spacer(modifier = Modifier.width(15.dp))
-            Button(onClick = { navController.navigate(route = AppScreens.VerPDFs.route) }) {
+            Button(onClick = { navegarVerPDF() }) {
                 Text("Ver Historias Clínicas")
             }
         }
 
     }
 }
+

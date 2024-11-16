@@ -1,86 +1,92 @@
 package com.example.organizacionaves.Screens
 
+import android.graphics.Bitmap
+import android.net.Uri
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateListOf
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.setValue
 import androidx.lifecycle.ViewModel
+import kotlinx.coroutines.flow.MutableStateFlow
+import kotlinx.coroutines.flow.asStateFlow
 
 class CrearPDFViewModel: ViewModel(){
 
-   var cTexto1 by mutableStateOf("")
-   var cTexto2 by mutableStateOf("")
-   var cTexto3 by mutableStateOf("")
-   var cTexto4 by mutableStateOf("")
-   var cTexto5 by mutableStateOf("")
-   var cTexto6 by mutableStateOf("")
-   var cTexto7 by mutableStateOf("")
-   var cTexto8 by mutableStateOf("")
-   var cTexto9 by mutableStateOf("")
-   var cTexto10 by mutableStateOf("")
-   var cTexto11 by mutableStateOf("")
-   var cTexto12 by mutableStateOf("")
-   var cTexto13 by mutableStateOf("")
-   var cTexto14 by mutableStateOf("")
-   var cTexto15 by mutableStateOf("")
-   var cTexto16 by mutableStateOf("")
-   var cTexto17 by mutableStateOf("")
-   var cTexto18 by mutableStateOf("")
-   var cTexto19 by mutableStateOf("")
-   var cTexto20 by mutableStateOf("")
-   var cTexto21 by mutableStateOf("")
-   var cTexto22 by mutableStateOf("")
-   var cTexto23 by mutableStateOf("")
-   var cTexto24 by mutableStateOf("")
-   var cTexto25 by mutableStateOf("")
-   var cTexto26 by mutableStateOf("")
-   var cTexto27 by mutableStateOf("")
-   var cTexto28 by mutableStateOf("")
-   var cTexto29 by mutableStateOf("")
-   var cTexto30 by mutableStateOf("")
-   var cTexto31 by mutableStateOf("")
-   var cTexto32 by mutableStateOf("")
-   var cTexto33 by mutableStateOf("")
-   var cTexto34 by mutableStateOf("")
-   var cTexto35 by mutableStateOf("")
-   var cTexto36 by mutableStateOf("")
-   var cTexto37 by mutableStateOf("")
-   var cTexto38 by mutableStateOf("")
-   var cTexto39 by mutableStateOf("")
-   var cTexto40 by mutableStateOf("")
-   var cTexto41 by mutableStateOf("")
-   var cTexto42 by mutableStateOf("")
-   var cTexto43 by mutableStateOf("")
-   var cTexto44 by mutableStateOf("")
-   var cTexto45 by mutableStateOf("")
-   var cTexto46 by mutableStateOf("")
-   var cTexto47 by mutableStateOf("")
-   var cTexto48 by mutableStateOf("")
-   var cTexto49 by mutableStateOf("")
-   var cTexto50 by mutableStateOf("")
-   var cTexto51 by mutableStateOf("")
-   var cTexto52 by mutableStateOf("")
-   var cTexto53 by mutableStateOf("")
-   var cTexto54 by mutableStateOf("")
-   var cTexto55 by mutableStateOf("")
-   var cTexto56 by mutableStateOf("")
-   var cTexto57 by mutableStateOf("")
-   var cTexto58 by mutableStateOf("")
-   var cTexto59 by mutableStateOf("")
-   var cTexto60 by mutableStateOf("")
-   var cTexto61 by mutableStateOf("")
-   var cTexto62 by mutableStateOf("")
-   var cTexto63 by mutableStateOf("")
-   var cTexto64 by mutableStateOf("")
-   var cTexto65 by mutableStateOf("")
-   var cTexto66 by mutableStateOf("")
-   var cTexto67 by mutableStateOf("")
-   var cTexto68 by mutableStateOf("")
-   var cTexto69 by mutableStateOf("")
-   var cTexto70 by mutableStateOf("")
 
 
-   val arregloCuadrosTexto = mutableStateListOf(
+   private var cTexto1 by mutableStateOf("")
+   private var cTexto2 by mutableStateOf("")
+   private var cTexto3 by mutableStateOf("")
+   private var cTexto4 by mutableStateOf("")
+   private var cTexto5 by mutableStateOf("")
+   private var cTexto6 by mutableStateOf("")
+   private var cTexto7 by mutableStateOf("")
+   private var cTexto8 by mutableStateOf("")
+   private var cTexto9 by mutableStateOf("")
+   private var cTexto10 by mutableStateOf("")
+   private var cTexto11 by mutableStateOf("")
+   private var cTexto12 by mutableStateOf("")
+   private var cTexto13 by mutableStateOf("")
+   private var cTexto14 by mutableStateOf("")
+   private var cTexto15 by mutableStateOf("")
+   private var cTexto16 by mutableStateOf("")
+   private var cTexto17 by mutableStateOf("")
+   private var cTexto18 by mutableStateOf("")
+   private var cTexto19 by mutableStateOf("")
+   private var cTexto20 by mutableStateOf("")
+   private var cTexto21 by mutableStateOf("")
+   private var cTexto22 by mutableStateOf("")
+   private var cTexto23 by mutableStateOf("")
+   private var cTexto24 by mutableStateOf("")
+   private var cTexto25 by mutableStateOf("")
+   private var cTexto26 by mutableStateOf("")
+   private var cTexto27 by mutableStateOf("")
+   private var cTexto28 by mutableStateOf("")
+   private var cTexto29 by mutableStateOf("")
+   private var cTexto30 by mutableStateOf("")
+   private var cTexto31 by mutableStateOf("")
+   private var cTexto32 by mutableStateOf("")
+   private var cTexto33 by mutableStateOf("")
+   private var cTexto34 by mutableStateOf("")
+   private var cTexto35 by mutableStateOf("")
+   private var cTexto36 by mutableStateOf("")
+   private var cTexto37 by mutableStateOf("")
+   private var cTexto38 by mutableStateOf("")
+   private var cTexto39 by mutableStateOf("")
+   private var cTexto40 by mutableStateOf("")
+   private var cTexto41 by mutableStateOf("")
+   private var cTexto42 by mutableStateOf("")
+   private var cTexto43 by mutableStateOf("")
+   private var cTexto44 by mutableStateOf("")
+   private var cTexto45 by mutableStateOf("")
+   private var cTexto46 by mutableStateOf("")
+   private var cTexto47 by mutableStateOf("")
+   private var cTexto48 by mutableStateOf("")
+   private var cTexto49 by mutableStateOf("")
+   private var cTexto50 by mutableStateOf("")
+   private var cTexto51 by mutableStateOf("")
+   private var cTexto52 by mutableStateOf("")
+   private var cTexto53 by mutableStateOf("")
+   private var cTexto54 by mutableStateOf("")
+   private var cTexto55 by mutableStateOf("")
+   private var cTexto56 by mutableStateOf("")
+   private var cTexto57 by mutableStateOf("")
+   private var cTexto58 by mutableStateOf("")
+   private var cTexto59 by mutableStateOf("")
+   private var cTexto60 by mutableStateOf("")
+   private var cTexto61 by mutableStateOf("")
+   private var cTexto62 by mutableStateOf("")
+   private var cTexto63 by mutableStateOf("")
+   private var cTexto64 by mutableStateOf("")
+   private var cTexto65 by mutableStateOf("")
+   private var cTexto66 by mutableStateOf("")
+   private var cTexto67 by mutableStateOf("")
+   private var cTexto68 by mutableStateOf("")
+   private var cTexto69 by mutableStateOf("")
+   private var cTexto70 by mutableStateOf("")
+
+
+   val arregloCuadrosTexto = MutableStateFlow( listOf(
       cTexto1, cTexto2, cTexto3, cTexto4, cTexto5, cTexto6, cTexto7, cTexto8, cTexto9, cTexto10,
       cTexto11, cTexto12, cTexto13, cTexto14, cTexto15, cTexto16, cTexto17, cTexto18, cTexto19, cTexto20,
       cTexto21, cTexto22, cTexto23, cTexto24, cTexto25, cTexto26, cTexto27, cTexto28, cTexto29, cTexto30,
@@ -88,7 +94,11 @@ class CrearPDFViewModel: ViewModel(){
       cTexto41, cTexto42, cTexto43, cTexto44, cTexto45, cTexto46, cTexto47, cTexto48, cTexto49, cTexto50,
       cTexto51, cTexto52, cTexto53, cTexto54, cTexto55, cTexto56, cTexto57, cTexto58, cTexto59, cTexto60,
       cTexto61, cTexto62, cTexto63, cTexto64, cTexto65, cTexto66, cTexto67, cTexto68, cTexto69, cTexto70,
+      )
    )
+   fun updateArregloCuadrosTexto(newList: List<String>) {
+      arregloCuadrosTexto.value = newList
+   }
 
    var radioButtonsState1 = mutableStateListOf(
       ToggleableInfo(isChecked = true, radioButtonNumber = 0),
@@ -280,7 +290,13 @@ class CrearPDFViewModel: ViewModel(){
       CheckBoxToggleableInfo(isChecked = false, checkBoxNumber = 6),
       CheckBoxToggleableInfo(isChecked = false, checkBoxNumber = 7),
    )
-}
 
-//private val _cuadroTexto1 = mutableStateOf(TextFieldStates())
-//val cuadroTexto1: State<TextFieldStates> = _cuadroTexto1
+   val uriLists = mutableStateListOf<Uri>()
+
+   private val _bitmaps = MutableStateFlow<List<Bitmap>>(emptyList())
+   val bitmaps = _bitmaps.asStateFlow()
+
+   fun onTakePhoto(bitmap: Bitmap) {
+      _bitmaps.value += bitmap
+   }
+}
